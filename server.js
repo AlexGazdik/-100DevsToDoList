@@ -78,6 +78,6 @@ app.put('/undo', (req, res) =>{
 
 
 //listen for page request 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || PORT,  () => {
     console.log("Your server is running")
 })
