@@ -1,0 +1,26 @@
+body {
+    background-color:rgb(0, 0, 0);
+}
+h1 {
+    color: red;
+}
+.login-container {
+    width:200px;
+    margin-top: 100px;
+    text-align: center;
+}
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+.del {
+    border-style: solid;
+    border-width:thin;
+    background-color: cadetblue;
+    padding:inherit;
+    margin-left: 10px;
+    border-radius: 1mm;
+}
+span {
+    font-size: large;
+}
