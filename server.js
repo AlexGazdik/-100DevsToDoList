@@ -1,27 +1,41 @@
+//import express module
 const express = require('express')
+//assign module to variable named app
 const app = express()
+//import MongoDB module
 const MongoClient = require('mongodb').MongoClient
+//assign localport 2121 to PORT
 const PORT = 2121
+//require local .env file
 require('dotenv').config()
 
-
-let db,
+//create variable for database
+    let db,
+//connection string variable stored in env file containing url and username/password
     dbConnectionStr = process.env.DB_STRING,
-    dbName = 'todoList';
+//assign MongoDB database name to variable db
+    dbName = 'todo';
 
-// Make connection to database
+// Make connection to database with promise
 MongoClient.connect(dbConnectionStr, {useUnifiedTopology: true})
+//on return
     .then(client => {
+        //console log connection confirmation
         console.log(`Connected to ${dbName} database`)
+        //assign database connection to var 'db'
         db = client.db(dbName)
     })
+    //error catch
     .catch(err => {
         console.log(err)
     })
 
 //express functions
+//assign ejs as the view engine
 app.set('view engine', 'ejs')
+//provides access to static files
 app.use(express.static('public'))
+//
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
@@ -70,8 +84,8 @@ app.put('/undo', (req, res) =>{
         }
     })
     .then(result =>{
-        console.log('un done')
-        res.json('un done')
+        console.log('Marked Incomplete')
+        res.json('Marked Incomplete')
     })
 
 })

@@ -14,23 +14,22 @@
         <div class="card">
             <div class='card-content'>
                 <h1>To Do List</h1>
-    <ul>
-        <% for(let i = 0; i < zebra.length; i++) { %>
-            <li class="todoItem">
-                <% if(zebra[i].completed === true) {%>
-                    <span class="completed"><%= zebra[i].todo %></span>
-                    <% }else{ %>
-                <span><%= zebra[i].todo %></span>
-                <% } %>
-                <span class="del"> Delete </span>
-            </li>
-        <% } %>
-    </ul>
+                    <ul>
+                        <% for(let i = 0; i < zebra.length; i++) { %>
+                            <li class="todoItem">
+                                <% if(zebra[i].completed === true) {%>
+                                    <span class="completed"><%= zebra[i].todo %></span>
+                                    <% }else{ %>
+                                <span><%= zebra[i].todo %></span>
+                                <% } %>
+                                <span class="del"> Delete </span>
+                            </li>
+                        <% } %>
+                    </ul>
         <h2>Things left to be done: <%= left %></h2>
-            <form action="/createTodo" method="POST" id='entry'>
-                <input type="text" placeholder="Enter List Item Here" name="todoItem" id='entryLine'>
+            <form action="/createTodo" method="POST">
+                <input type="text" placeholder="Enter List Item Here" name="todoItem">
                 <input type="submit">
-                <script type="text/javascript">document.entry.entryLine.focus();</script>
             </form>
         </div>
     </div>
